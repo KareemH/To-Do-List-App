@@ -1,0 +1,6 @@
+<!-- Title -->
+<h1 class="box" id="heading">You Were Successfully Registered!</h1>
+
+{{!-- we are using the #each handlebars helper to iterate over each element of the users array --}}
+{{!-- within the #each helper, we can pull the username property off and display it inside an <li> --}}
+<ul>{{#each users}}<li>{{username}}</li>{{/each}}</ul>

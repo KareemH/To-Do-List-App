@@ -1,0 +1,41 @@
+<!-- Title -->
+<div class="box" id="heading">
+  <h1>Your Current To-Do List</h1>
+</div>
+
+<!-- Log out button -->
+<div class="text-center">
+  <form class="" action="/log-out" method="post">
+    <button type="submit" name="button" class="btn btn-secondary">Log Out</button>
+  </form>
+</div>
+
+{{!-- we are using the #each handlebars helper to iterate over each element of the users array --}}
+{{!-- within the #each helper, we can pull the username property off and display it inside an <li> --}}
+
+<!-- A div to hold all to do items -->
+<div class="box">
+  <!-- Iterate through each item in the items array from app.js that was templated into this HTML -->
+  {{#each items}}
+    <!-- A div and form will be creaed for each item -->
+    <form class="" action="/update-item" method="post">
+      <div class="item">
+        <!-- Checkbox -->
+        <input type="checkbox" name="inputid" value={{id}} onChange="this.form.submit()">
+        <!-- Actual content -->
+        <p>{{content}}</p>
+        <!-- Delete button -->
+        <div class="delete-button">
+            <button type="submit" name="buttonid" value={{id}} class="btn btn-danger" formaction="/delete-item">-</button>
+        </div>
+      </div>
+    </form>
+  {{/each}}
+
+<!-- Insert new item button -->
+  <form class="item" action="/insert-new-item" method="post">
+    <input class="input-text" type="text" name="newText">
+    <button class="insert-button" type="submit" name="button">+</button>
+  </form>
+
+</div>
